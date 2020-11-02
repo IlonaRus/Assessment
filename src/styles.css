@@ -1,0 +1,11 @@
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/bootstrap4-dark-purple/theme.css";
+@import "~primeng/resources/primeng.min.css";
+
+body {
+  background-color: var(--surface-a);
+}
+
+h1, h2 {
+  color: var(--text-color);
+}

@@ -1,0 +1,19 @@
+h3 {
+  font-weight: 500;
+}
+
+p-card {
+  padding: 20px;
+  flex-basis: 30%;
+  display: grid;
+}
+
+p-header {
+  font-size: x-large;
+  padding: 10px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+}

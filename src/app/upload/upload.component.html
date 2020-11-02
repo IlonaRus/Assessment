@@ -1,0 +1,8 @@
+<div class="upload">
+  <p-card class="upload-card">
+    <p-header>Upload</p-header>
+    <p-fileUpload  customUpload="true" accept="image/jpeg, application/pdf" id="upload" (uploadHandler)="uploadFile($event)"></p-fileUpload>
+    <p-progressBar mode="indeterminate" [style]="{'height':'6px', 'margin': '20px'}" *ngIf="uploading" id="progressbar"></p-progressBar>
+  </p-card>
+</div>
+

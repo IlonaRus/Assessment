@@ -1,0 +1,10 @@
+<h1>{{title}}</h1> 
+
+<!-- #3 Now the 'select' method is being called, with the invoice dat in $event-->
+<app-upload (uploaded)="select($event)"></app-upload> <!-- @output of the response () -->
+<app-download [data]="invoice" [file]="file"></app-download>
+<app-invoice *ngIf="invoice"  [invoice]="invoice"></app-invoice> <!-- @input of the response (via app-component) -->
+<!-- *ngIf="invoice !== undefined" is the same as the ngIf above -->
+<!-- Intention: show app-invoice when there is an instance of the property invoice -->
+<!-- "a instance of" there has been a assignment -->
+<!-- a assignment: there is an "invoice = ..." in the code -->
