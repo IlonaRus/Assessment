@@ -24,7 +24,7 @@ export class UploadService {
     //   })
     // });
   
-    // This is the hardcoded response that will be returned when running the application. Including a deplay to show the progressbar.
+    // This is the hardcoded response that will be returned when uploading a file. Including a delay to show the progressbar.
     const response = {
       type: 4,
       body: {
