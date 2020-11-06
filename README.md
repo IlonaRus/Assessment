@@ -8,13 +8,13 @@ There must be an option to retry a document, try another document and an option 
 ## Uitwerking
 Ik heb er voor gekozen om de applicatie in drie onderdelen te verdelen; upload, download en het tonen van de data.
 
-#Upload
+### Upload
 Binnen het upload component wordt er een call naar de API gedaan. Alleen PDF en JPEG bestanden zijn toegestaan.
 
-#Download
+### Download
 Het JSON response wat terug komt van de API kan worden gedownload. Net als het bestand wat geupload is.
 
-#Data
+### Data
 Het JSON response wat van de API komt heb ik in drie onderdelen verdeeld; Customer, Order en Data. Deze drie onderdelen heb ik op cards weergegeven. 
 
 ## Runnen
@@ -22,4 +22,5 @@ De applicatie kan gerund worden met NPM. Aangezien mijn API key afgeschermd is, 
 
 ## Overige
 Voor de UI heb ik gebruik gemaakt van componenten van PrimeNG (zoals de FileUploadModule, ProgressBarModule en ButtonModule). https://www.primefaces.org/primeng/showcase/#/
+
 Daarnaast heb ik in de map ' docs' twee sequentiediagrammen toegevoegd.
