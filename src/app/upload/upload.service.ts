@@ -1,25 +1,40 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { of, throwError } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
+// import { environment } from 'src/environments/environment';
+import { invoice } from '../invoice/invoice'
 
 @Injectable({ providedIn: 'root' })
 export class UploadService {
 
-  private uploadUrl = 'https://custom-ocr.klippa.com/api/v1/parseDocument';
+  private uploadUrl = 'api_URL';
 
   constructor(private http: HttpClient) { }
 
   newUpload(formData) {
-    return this.http.post(this.uploadUrl, formData, {
-      reportProgress: true,
-      observe: 'events',
-      headers: new HttpHeaders({
-        'X-Auth-Key': environment.API_key
-      })
-    });
+    // This is the code that is used when the official API is being called 
+    // return this.http.post(this.uploadUrl, formData, {
+    //   reportProgress: true,
+    //   observe: 'events',
+    //   headers: new HttpHeaders({
+    //     'X-Auth-Key': environment.API_key
+    //   })
+    // });
+  
+    // This is the hardcoded response that will be returned when running the application. Including a deplay to show the progressbar.
+    const response = {
+      type: 4,
+      body: {
+        data: invoice
+     }
+    }
+
+    const httpEvent = of(response);
+
+    return httpEvent.pipe(delay(3000)) ;
   }
 
   handleError(error) {
