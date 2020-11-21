@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
-import { InvoiceResponse } from '../invoice/invoice-response';
+import { InvoiceResponse } from '../invoice/invoice-response.interface';
 
 
 @Component({

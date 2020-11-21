@@ -4,6 +4,7 @@ import { Component, ViewChild, ElementRef, Output, EventEmitter } from '@angular
 
 import { UploadService } from './upload.service';
 import { HttpResponse } from '@angular/common/http';
+import { Invoice } from '../invoice/invoice';
 
 
 @Component({
@@ -31,10 +32,11 @@ export class UploadComponent {
         if (httpEvent.type === 4) {
           this.uploading = false;
           console.log(httpEvent.type);
-          const data = httpEvent.body.data;
-          
+          const invoiceResponse = httpEvent.body.data;
+          const invoice = new Invoice(invoiceResponse);
+
           this.uploaded.emit({
-            data,
+            invoice,
             file
           }); // #2 Now the data gets sent, via 'uploaded', to app.component.html (the listening component)
          }

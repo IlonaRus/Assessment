@@ -5,7 +5,7 @@ import { of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 // import { environment } from 'src/environments/environment';
-import { invoice } from '../invoice/invoice'
+import { invoice } from '../invoice/invoice.data'
 
 @Injectable({ providedIn: 'root' })
 export class UploadService {
