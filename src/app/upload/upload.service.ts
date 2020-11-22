@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { of, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 // import { environment } from 'src/environments/environment';
 import { invoice } from '../invoice/invoice.data'
+import { InvoiceResponse } from '../invoice/invoice-response.interface';
 
 @Injectable({ providedIn: 'root' })
 export class UploadService {
@@ -14,7 +15,8 @@ export class UploadService {
 
   constructor(private http: HttpClient) { }
 
-  newUpload(formData) {
+  newUpload(formData: FormData): Observable<{ type: number, body: {data: InvoiceResponse}}> {
+    console.log(formData);
     // This is the code that is used when the official API is being called 
     // return this.http.post(this.uploadUrl, formData, {
     //   reportProgress: true,
@@ -37,7 +39,7 @@ export class UploadService {
     return httpEvent.pipe(delay(3000)) ;
   }
 
-  handleError(error) {
+  handleError(error: { error: ErrorEvent, status: number, message: string}): Observable<string> {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Error: ${error.error.message}`;
