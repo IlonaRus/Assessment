@@ -1,69 +1,69 @@
 <div class="cards">
   <p-card class="card">
     <p-header>Customer Data</p-header>
-    <ng-container *ngIf="hasAdresCustomer">
-      <h3>Adres</h3>
-      <p *ngIf="customer.address">{{ customer.address }}</p>
-      <p *ngIf="customer.zipcode">{{ customer.zipcode }}</p>
-      <p *ngIf="customer.city">{{ customer.city }}</p>
-      <p *ngIf="customer.province">{{ customer.province }}</p>
-      <p *ngIf="customer.municipality">{{ customer.municipality }}</p>
-      <p *ngIf="customer.country">{{ customer.country }}</p>
+    <ng-container *ngIf="hasAddressCustomer">
+      <h3>Address</h3>
+      <p *ngIf="invoice.customer.address">{{ invoice.customer.address }}</p>
+      <p *ngIf="invoice.customer.zipcode">{{ invoice.customer.zipcode }}</p>
+      <p *ngIf="invoice.customer.city">{{ invoice.customer.city }}</p>
+      <p *ngIf="invoice.customer.province">{{ invoice.customer.province }}</p>
+      <p *ngIf="invoice.customer.municipality">{{ invoice.customer.municipality }}</p>
+      <p *ngIf="invoice.customer.country">{{ invoice.customer.country }}</p>
     </ng-container>
   
-    <ng-container *ngIf="hasPersoonsGegevens">
-      <h3>Persoonsgegevens</h3>
-      <p *ngIf="customer.name">Naam: {{ customer.name }}</p>
-      <p *ngIf="customer.number">Klantnummer: {{ customer.number }}</p>  
-      <p *ngIf="customer.email">E-mail: {{ customer.email }}</p> 
-      <p *ngIf="customer.phone">Telefoonnummer: {{ customer.phone }}</p> 
-      <p *ngIf="customer.website">Website: {{ customer.website }}</p>
+    <ng-container *ngIf="hasPersonalInfo">
+      <h3>Personal Info</h3>
+      <p *ngIf="invoice.customer.name">Name: {{ invoice.customer.name }}</p>
+      <p *ngIf="invoice.customer.number">Customernumber: {{ invoice.customer.number }}</p>  
+      <p *ngIf="invoice.customer.email">E-mail: {{ invoice.customer.email }}</p> 
+      <p *ngIf="invoice.customer.phone">Phonenumber: {{ invoice.customer.phone }}</p> 
+      <p *ngIf="invoice.customer.website">Website: {{ invoice.customer.website }}</p>
     </ng-container>
     
-    <ng-container *ngIf="hasOverige">
-      <h3>Overige</h3>
-      <p *ngIf="customer.coc_number">KvK-nummer: {{ customer.coc_number }}</p>
-      <p *ngIf="customer.vat_number">BTW-nummer: {{ customer.vat_number }}</p>
-      <p *ngIf="customer.bank_account_number">IBAN: {{ customer.bank_account_number }}</p>
-      <p *ngIf="customer.bank_account_number_bic">BIC-nummer: {{ customer.bank_account_number_bic }}</p>
-      <p *ngIf="customer.reference">Referentie: {{ customer.reference }}</p>
+    <ng-container *ngIf="hasOther">
+      <h3>Other</h3>
+      <p *ngIf="invoice.customer.coc_number">KvK-number: {{ invoice.customer.coc_number }}</p>
+      <p *ngIf="invoice.customer.vat_number">BTW-number: {{ invoice.customer.vat_number }}</p>
+      <p *ngIf="invoice.customer.bank_account_number">IBAN: {{ invoice.customer.bank_account_number }}</p>
+      <p *ngIf="invoice.customer.bank_account_number_bic">BIC-number: {{ invoice.customer.bank_account_number_bic }}</p>
+      <p *ngIf="invoice.customer.reference">Reference: {{ invoice.customer.reference }}</p>
     </ng-container>
   </p-card>
   
   <p-card class="card">
     <p-header>Order Data</p-header>
-    <ng-container *ngIf="hasBetaling">
-      <h3>Betaling</h3>
-      <p *ngIf="order.invoice_number">Factuurnummer: {{ order.invoice_number }}</p>
-      <p *ngIf="order.invoice_type">Factuurtype: {{ order.invoice_type }}</p>
-      <p *ngIf="order.amount">Bedrag: {{ order.amount }}</p>
-      <p *ngIf="order.amount_change">Wisselgeld: {{ order.amount_change }}</p>
-      <p *ngIf="order.amountexvat">Bedrag (ex. BTW): {{ order.amountexvat }}</p>
-      <p *ngIf="order.currency">Valuta: {{ order.currency }}</p>
-      <p *ngIf="order.payment_auth_code">Authorisatiecode: {{ order.payment_auth_code }}</p>
-      <p *ngIf="order.paymentmethod">Betaalmethode: {{ order.paymentmethod }}</p>
-      <p *ngIf="order.payment_card_account_number">Kaartaccountnummer: {{ order.payment_card_account_number }}</p>
-      <p *ngIf="order.payment_card_bank">Kaartuitgever: {{ order.payment_card_bank }}</p>
-      <p *ngIf="order.payment_card_issuer">Kaarthouder: {{ order.payment_card_issuer }}</p>
-      <p *ngIf="order.payment_card_number">Kaartnummer: {{ order.payment_card_number }}</p>
-      <p *ngIf="order.payment_due_date">Uiterste betaaldatum:{{ order.payment_due_date }}</p>
-      <p *ngIf="order.payment_slip_code">Boncode: {{ order.payment_slip_code }}</p>
-      <p *ngIf="order.payment_slip_customer_number">Bon klantnummer: {{ order.payment_slip_customer_number }}</p>
-      <p *ngIf="order.payment_slip_reference_number">Bon referentienummer: {{ order.payment_slip_reference_number }}</p>
+    <ng-container *ngIf="hasPayment">
+      <h3>Payment</h3>
+      <p *ngIf="invoice.order.invoice_number">Invoicenumber: {{ invoice.order.invoice_number }}</p>
+      <p *ngIf="invoice.order.invoice_type">Invoicetype: {{ invoice.order.invoice_type }}</p>
+      <p *ngIf="invoice.order.amount">Amount: {{ invoice.order.amount }}</p>
+      <p *ngIf="invoice.order.amount_change">Change: {{ invoice.order.amount_change }}</p>
+      <p *ngIf="invoice.order.amountexvat">Amount (ex. BTW): {{ invoice.order.amountexvat }}</p>
+      <p *ngIf="invoice.order.currency">Currency: {{ invoice.order.currency }}</p>
+      <p *ngIf="invoice.order.payment_auth_code">Auth. code: {{ invoice.order.payment_auth_code }}</p>
+      <p *ngIf="invoice.order.paymentmethod">Paymentmethod: {{ invoice.order.paymentmethod }}</p>
+      <p *ngIf="invoice.order.payment_card_account_number">Cardaccountnumber: {{ invoice.order.payment_card_account_number }}</p>
+      <p *ngIf="invoice.order.payment_card_bank">Cardbank: {{ invoice.order.payment_card_bank }}</p>
+      <p *ngIf="invoice.order.payment_card_issuer">Cardissuer: {{ invoice.order.payment_card_issuer }}</p>
+      <p *ngIf="invoice.order.payment_card_number">Cardnumber: {{ invoice.order.payment_card_number }}</p>
+      <p *ngIf="invoice.order.payment_due_date">Payment duedate:{{ invoice.order.payment_due_date }}</p>
+      <p *ngIf="invoice.order.payment_slip_code">Slipcode: {{ invoice.order.payment_slip_code }}</p>
+      <p *ngIf="invoice.order.payment_slip_customer_number">Slip customernumber: {{ invoice.order.payment_slip_customer_number }}</p>
+      <p *ngIf="invoice.order.payment_slip_reference_number">Slip referencenumber: {{ invoice.order.payment_slip_reference_number }}</p>
     </ng-container>
    
-    <ng-container *ngIf="hasOmschrijving">
-      <h3>Omschrijving</h3>
-      <div *ngFor="let line of order.lines">
-        <p *ngIf="line.description">Samenvatting: {{ line.description }}</p>
+    <ng-container *ngIf="hasDescription">
+      <h3>Description</h3>
+      <div *ngFor="let line of invoice.order.lines">
+        <p *ngIf="line.description">Summary: {{ line.description }}</p>
         <p-accordion *ngFor="let lineitem of line.lineitems">
-          <p-accordionTab header="Samenvatting van {{ lineitem.title }}">
-            <p *ngIf="lineitem.title">Titel: {{ lineitem.title }}</p>
-            <p *ngIf="lineitem.description">Omschrijving: {{ lineitem.description }}</p>
-            <p *ngIf="lineitem.amount">Bedrag: {{ lineitem.amount }}</p>
-            <p *ngIf="lineitem.amount_each">Bedrag per stuk: {{ lineitem.amount_each }}</p>
-            <p *ngIf="lineitem.amount_ex_vat">Bedrag (ex. BTW): {{ lineitem.amount_ex_vat }}</p>
-            <p *ngIf="lineitem.quantity">Aantal: {{ lineitem.quantity }}</p>
+          <p-accordionTab header="Summary of {{ lineitem.title }}">
+            <p *ngIf="lineitem.title">Title: {{ lineitem.title }}</p>
+            <p *ngIf="lineitem.description">Description: {{ lineitem.description }}</p>
+            <p *ngIf="lineitem.amount">Amount: {{ lineitem.amount }}</p>
+            <p *ngIf="lineitem.amount_each">Amount each: {{ lineitem.amount_each }}</p>
+            <p *ngIf="lineitem.amount_ex_vat">Amount (ex. BTW): {{ lineitem.amount_ex_vat }}</p>
+            <p *ngIf="lineitem.quantity">Quantity: {{ lineitem.quantity }}</p>
             <p *ngIf="lineitem.sku">Sku: {{ lineitem.sku }}</p>
             <p *ngIf="lineitem.vat_amount">BTW: {{ lineitem.vat_amount }}</p>
             <p *ngIf="lineitem.vat_code">BTW code: {{ lineitem.vat_code }}</p>
@@ -75,13 +75,13 @@
    
     <ng-container *ngIf="hasBtw">
       <h3>BTW</h3>
-      <p *ngIf="order.vatamount">BTW: {{ order.vatamount }}</p>
-      <p *ngIf="order.vat_context">BTW context: {{ order.vatcontext }}</p>
-      <div *ngFor="let vatitem of order.vatitems">
-        <p *ngIf="vatitem.amount">Bedrag: {{ vatitem.amount }}</p>
-        <p *ngIf="vatitem.amount_excl_vat">Bedrag (excl. BTW): {{ vatitem.amount_excl_vat }}</p>
-        <p *ngIf="vatitem.amount_incl_excl_vat_estimated">BTW berekend: {{ vatitem.amount_incl_excl_vat_estimated }}</p>
-        <p *ngIf="vatitem.amount_incl_vat">Bedrag (incl. BTW): {{ vatitem.amount_incl_vat }}</p>
+      <p *ngIf="invoice.order.vatamount">BTW: {{ invoice.order.vatamount }}</p>
+      <p *ngIf="invoice.order.vat_context">BTW context: {{ invoice.order.vatcontext }}</p>
+      <div *ngFor="let vatitem of invoice.order.vatitems">
+        <p *ngIf="vatitem.amount">Amount: {{ vatitem.amount }}</p>
+        <p *ngIf="vatitem.amount_excl_vat">Amount (excl. BTW): {{ vatitem.amount_excl_vat }}</p>
+        <p *ngIf="vatitem.amount_incl_excl_vat_estimated">BTW calculated: {{ vatitem.amount_incl_excl_vat_estimated }}</p>
+        <p *ngIf="vatitem.amount_incl_vat">Amount (incl. BTW): {{ vatitem.amount_incl_vat }}</p>
         <p *ngIf="vatitem.code">BTW code: {{ vatitem.code }}</p>
         <p *ngIf="vatitem.percentage">BTW percentage: {{ vatitem.percentage }}</p>
       </div>
@@ -89,17 +89,17 @@
   
     <ng-container *ngIf="hasOrderInfo">
       <h3>Orderinfo</h3>
-      <p *ngIf="order.order_number">Bestelnummer: {{ order.order_number }}</p>
-      <p *ngIf="order.date">Besteldatum: {{ order.date }}</p>
-      <p *ngIf="order.package_number">Pakketnummer: {{ order.package_number }}</p>
-      <p *ngIf="order.purchasedate">Aankoopdatum: {{ order.purchasedate }}</p>
-      <p *ngIf="order.receipt_number">Betaalbon: {{ order.receipt_number }}</p>
-      <p *ngIf="order.server">Medewerker: {{ order.server }}</p>
-      <p *ngIf="order.shop_number">Winkel: {{ order.shop_number }}</p>
-      <p *ngIf="order.terminal_number">Kassa: {{ order.terminal_number }}</p>
-      <p *ngIf="order.transaction_number">Transactie: {{ order.transaction_number }}</p>
-      <p *ngIf="order.transaction_reference">Transactie referentie: {{ order.transaction_reference }}</p>
-      <div *ngFor="let barcode of order.barcodes">
+      <p *ngIf="invoice.order.order_number">Ordernumber: {{ invoice.order.order_number }}</p>
+      <p *ngIf="invoice.order.date">Orderdate: {{ invoice.order.date }}</p>
+      <p *ngIf="invoice.order.package_number">Packagenumber: {{ invoice.order.package_number }}</p>
+      <p *ngIf="invoice.order.purchasedate">Purchasedate: {{ invoice.order.purchasedate }}</p>
+      <p *ngIf="invoice.order.receipt_number">Receiptnumber: {{ invoice.order.receipt_number }}</p>
+      <p *ngIf="invoice.order.server">Server: {{ invoice.order.server }}</p>
+      <p *ngIf="invoice.order.shop_number">Shopnumber: {{ invoice.order.shop_number }}</p>
+      <p *ngIf="invoice.order.terminal_number">Terminalnumber: {{ invoice.order.terminal_number }}</p>
+      <p *ngIf="invoice.order.transaction_number">Transaction: {{ invoice.order.transaction_number }}</p>
+      <p *ngIf="invoice.order.transaction_reference">Transaction transaction_reference: {{ invoice.order.transaction_reference }}</p>
+      <div *ngFor="let barcode of invoice.order.barcodes">
         <p *ngIf="barcode.type">Type: {{ barcode.type }}</p>
         <p *ngIf="barcode.value">Inhoud: {{ barcode.value }}</p>
       </div>
@@ -108,37 +108,36 @@
   
   <p-card class="card">
     <p-header>Merchant Data</p-header>
-    <ng-container *ngIf="hasAdresMerchant">
-      <h3>Adres</h3>
-      <p *ngIf="merchant.address">{{ merchant.address }}</p>
-      <p *ngIf="merchant.zipcode">{{ merchant.zipcode }}</p>
-      <p *ngIf="merchant.city">{{ merchant.city }}</p>
-      <p *ngIf="merchant.province">{{ merchant.province }}</p>
-      <p *ngIf="merchant.municipality">{{ merchant.municipality }}</p>
-      <p *ngIf="merchant.country">{{ merchant.country }}</p>
-      <p *ngIf="merchant.country_code">{{ merchant.country_code }}</p>
+    <ng-container *ngIf="hasAddressMerchant">
+      <h3>Address</h3>
+      <p *ngIf="invoice.merchant.address">{{ invoice.merchant.address }}</p>
+      <p *ngIf="invoice.merchant.zipcode">{{ invoice.merchant.zipcode }}</p>
+      <p *ngIf="invoice.merchant.city">{{ invoice.merchant.city }}</p>
+      <p *ngIf="invoice.merchant.province">{{ invoice.merchant.province }}</p>
+      <p *ngIf="invoice.merchant.municipality">{{ invoice.merchant.municipality }}</p>
+      <p *ngIf="invoice.merchant.country">{{ invoice.merchant.country }}</p>
+      <p *ngIf="invoice.merchant.country_code">{{ invoice.merchant.country_code }}</p>
     </ng-container>
     
     <ng-container *ngIf="hasBankInfo">
       <h3>Bankinfo</h3>
-      <p *ngIf="merchant.bank_account_number">IBAN: {{ merchant.bank_account_number }}</p>
-      <p *ngIf="merchant.bank_account_number_bic">BIC-nummer: {{ merchant.bank_account_number_bic }}</p>
-      <p *ngIf="merchant.bank_domestic_account_number">Rekeningnummer: {{ merchant.bank_domestic_account_number }}</p>
-      <p *ngIf="merchant.bank_domestic_bank_code">Bankcode: {{ merchant.bank_domestic_bank_code }}</p>
-      <p *ngIf="merchant.chain_liability_bank_account_number">G-rekeningnummer: {{ merchant.chain_liability_bank_account_number }}</p>
+      <p *ngIf="invoice.merchant.bank_account_number">IBAN: {{ invoice.merchant.bank_account_number }}</p>
+      <p *ngIf="invoice.merchant.bank_account_number_bic">BIC-number: {{ invoice.merchant.bank_account_number_bic }}</p>
+      <p *ngIf="invoice.merchant.bank_domestic_account_number">Accountnumber: {{ invoice.merchant.bank_domestic_account_number }}</p>
+      <p *ngIf="invoice.merchant.bank_domestic_bank_code">Bankcode: {{ invoice.merchant.bank_domestic_bank_code }}</p>
+      <p *ngIf="invoice.merchant.chain_liability_bank_account_number">G-accountnumber: {{ invoice.merchant.chain_liability_bank_account_number }}</p>
     </ng-container>
   
-    <ng-container *ngIf="hasVerkopersInfo">
-      <h3>Verkopersinfo</h3>
-      <p *ngIf="merchant.name">Naam: {{ merchant.name }}</p>
-      <p *ngIf="merchant.id">ID: {{ merchant.id }}</p>
-      <p *ngIf="merchant.email">E-mail: {{ merchant.email }}</p>
-      <p *ngIf="merchant.phone">Telefoonnummer: {{ merchant.phone }}</p>
-      <p *ngIf="merchant.website">Website: {{ merchant.website }}</p>
-      <p *ngIf="merchant.coc_number">KvK-nummer: {{ merchant.coc_number }}</p>
-      <p *ngIf="merchant.vat_number">BTW-nummer: {{ merchant.vat_number }}</p>
-      <p *ngIf="merchant.main_activity_code">Activity code: {{ merchant.main_activity_code }}</p>
+    <ng-container *ngIf="hasSellersInfo">
+      <h3>Sellersinfo</h3>
+      <p *ngIf="invoice.merchant.name">Name: {{ invoice.merchant.name }}</p>
+      <p *ngIf="invoice.merchant.id">ID: {{ invoice.merchant.id }}</p>
+      <p *ngIf="invoice.merchant.email">E-mail: {{ invoice.merchant.email }}</p>
+      <p *ngIf="invoice.merchant.phone">Phonenumber: {{ invoice.merchant.phone }}</p>
+      <p *ngIf="invoice.merchant.website">Website: {{ invoice.merchant.website }}</p>
+      <p *ngIf="invoice.merchant.coc_number">KvK-number: {{ invoice.merchant.coc_number }}</p>
+      <p *ngIf="invoice.merchant.vat_number">BTW-number: {{ invoice.merchant.vat_number }}</p>
+      <p *ngIf="invoice.merchant.main_activity_code">Activity code: {{ invoice.merchant.main_activity_code }}</p>
     </ng-container>
   </p-card>
 </div>
-
