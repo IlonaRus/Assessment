@@ -1,5 +1,5 @@
-import {InvoiceResponse} from './invoice-response.interface';
-import {Customer} from './customer/customer';
+import { InvoiceResponse } from './invoice-response.interface';
+import { Customer } from './customer/customer';
 import { Order } from './order/order';
 import { Merchant } from './merchant/merchant';
 
