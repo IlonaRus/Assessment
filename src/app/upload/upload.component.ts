@@ -21,7 +21,7 @@ export class UploadComponent {
 
   constructor(private uploadService: UploadService) { }
 
-  uploadFile(fileEvent) { // fileEvent to distinguish between this event and the httpEvent
+  uploadFile(fileEvent: UploadEvent): void { // fileEvent to distinguish between this event and the httpEvent
     const uploadData = new FormData();
     const file = fileEvent.files[0]; // The event contains files and I want the first file
     uploadData.append('document', file); 
