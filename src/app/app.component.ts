@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InvoiceResponse } from './invoice/invoice-response';
+import { Invoice } from './invoice/invoice';
 
 
 @Component({
@@ -10,12 +10,12 @@ import { InvoiceResponse } from './invoice/invoice-response';
 
 export class AppComponent {
   title = 'Assessment 3.0';
-  invoice: InvoiceResponse;
+  invoice: Invoice;
   file: File;
 
   // #4 data is the 'invoice response'
-  select(event: { data: InvoiceResponse, file: File}) {
-    this.invoice = event.data;
+  select(event: { invoice: Invoice, file: File}) {
+    this.invoice = event.invoice;
     this.file = event.file;
   }
 }
