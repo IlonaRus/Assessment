@@ -36,9 +36,9 @@
       <h3>Payment</h3>
       <p *ngIf="invoice.order.invoice_number">Invoicenumber: {{ invoice.order.invoice_number }}</p>
       <p *ngIf="invoice.order.invoice_type">Invoicetype: {{ invoice.order.invoice_type }}</p>
-      <p *ngIf="invoice.order.amount">Amount: {{ invoice.order.amount }}</p>
-      <p *ngIf="invoice.order.amount_change">Change: {{ invoice.order.amount_change }}</p>
-      <p *ngIf="invoice.order.amountexvat">Amount (ex. BTW): {{ invoice.order.amountexvat }}</p>
+      <p *ngIf="invoice.order.amount">Amount: {{ invoice.order.amount | centsToMonetaryUnit | currency }}</p>
+      <p *ngIf="invoice.order.amount_change">Change: {{ invoice.order.amount_change | centsToMonetaryUnit | currency }}</p>
+      <p *ngIf="invoice.order.amountexvat">Amount (ex. BTW): {{ invoice.order.amountexvat | centsToMonetaryUnit | currency }}</p>
       <p *ngIf="invoice.order.currency">Currency: {{ invoice.order.currency }}</p>
       <p *ngIf="invoice.order.payment_auth_code">Auth. code: {{ invoice.order.payment_auth_code }}</p>
       <p *ngIf="invoice.order.paymentmethod">Paymentmethod: {{ invoice.order.paymentmethod }}</p>
@@ -46,7 +46,7 @@
       <p *ngIf="invoice.order.payment_card_bank">Cardbank: {{ invoice.order.payment_card_bank }}</p>
       <p *ngIf="invoice.order.payment_card_issuer">Cardissuer: {{ invoice.order.payment_card_issuer }}</p>
       <p *ngIf="invoice.order.payment_card_number">Cardnumber: {{ invoice.order.payment_card_number }}</p>
-      <p *ngIf="invoice.order.payment_due_date">Payment duedate:{{ invoice.order.payment_due_date }}</p>
+      <p *ngIf="invoice.order.payment_due_date">Payment duedate:{{ invoice.order.payment_due_date | date }}</p>
       <p *ngIf="invoice.order.payment_slip_code">Slipcode: {{ invoice.order.payment_slip_code }}</p>
       <p *ngIf="invoice.order.payment_slip_customer_number">Slip customernumber: {{ invoice.order.payment_slip_customer_number }}</p>
       <p *ngIf="invoice.order.payment_slip_reference_number">Slip referencenumber: {{ invoice.order.payment_slip_reference_number }}</p>
@@ -60,12 +60,12 @@
           <p-accordionTab header="Summary of {{ lineitem.title }}">
             <p *ngIf="lineitem.title">Title: {{ lineitem.title }}</p>
             <p *ngIf="lineitem.description">Description: {{ lineitem.description }}</p>
-            <p *ngIf="lineitem.amount">Amount: {{ lineitem.amount }}</p>
-            <p *ngIf="lineitem.amount_each">Amount each: {{ lineitem.amount_each }}</p>
-            <p *ngIf="lineitem.amount_ex_vat">Amount (ex. BTW): {{ lineitem.amount_ex_vat }}</p>
+            <p *ngIf="lineitem.amount">Amount: {{ lineitem.amount | centsToMonetaryUnit | currency }}</p>
+            <p *ngIf="lineitem.amount_each">Amount each: {{ lineitem.amount_each | centsToMonetaryUnit | currency }}</p>
+            <p *ngIf="lineitem.amount_ex_vat">Amount (ex. BTW): {{ lineitem.amount_ex_vat | centsToMonetaryUnit | currency }}</p>
             <p *ngIf="lineitem.quantity">Quantity: {{ lineitem.quantity }}</p>
             <p *ngIf="lineitem.sku">Sku: {{ lineitem.sku }}</p>
-            <p *ngIf="lineitem.vat_amount">BTW: {{ lineitem.vat_amount }}</p>
+            <p *ngIf="lineitem.vat_amount">BTW: {{ lineitem.vat_amount | centsToMonetaryUnit | currency }}</p>
             <p *ngIf="lineitem.vat_code">BTW code: {{ lineitem.vat_code }}</p>
             <p *ngIf="lineitem.vat_percentage">BTW percentage: {{ lineitem.vat_percentage }}</p>
           </p-accordionTab>
@@ -75,13 +75,13 @@
    
     <ng-container *ngIf="hasBtw">
       <h3>BTW</h3>
-      <p *ngIf="invoice.order.vatamount">BTW: {{ invoice.order.vatamount }}</p>
+      <p *ngIf="invoice.order.vatamount">BTW: {{ invoice.order.vatamount | centsToMonetaryUnit | currency }}</p>
       <p *ngIf="invoice.order.vat_context">BTW context: {{ invoice.order.vatcontext }}</p>
       <div *ngFor="let vatitem of invoice.order.vatitems">
-        <p *ngIf="vatitem.amount">Amount: {{ vatitem.amount }}</p>
-        <p *ngIf="vatitem.amount_excl_vat">Amount (excl. BTW): {{ vatitem.amount_excl_vat }}</p>
-        <p *ngIf="vatitem.amount_incl_excl_vat_estimated">BTW calculated: {{ vatitem.amount_incl_excl_vat_estimated }}</p>
-        <p *ngIf="vatitem.amount_incl_vat">Amount (incl. BTW): {{ vatitem.amount_incl_vat }}</p>
+        <p *ngIf="vatitem.amount">Amount: {{ vatitem.amount | centsToMonetaryUnit | currency }}</p>
+        <p *ngIf="vatitem.amount_excl_vat">Amount (excl. BTW): {{ vatitem.amount_excl_vat | centsToMonetaryUnit | currency }}</p>
+        <p *ngIf="vatitem.amount_incl_excl_vat_estimated">BTW calculated: {{ vatitem.amount_incl_excl_vat_estimated | centsToMonetaryUnit | currency }}</p>
+        <p *ngIf="vatitem.amount_incl_vat">Amount (incl. BTW): {{ vatitem.amount_incl_vat | centsToMonetaryUnit | currency }}</p>
         <p *ngIf="vatitem.code">BTW code: {{ vatitem.code }}</p>
         <p *ngIf="vatitem.percentage">BTW percentage: {{ vatitem.percentage }}</p>
       </div>
@@ -90,9 +90,9 @@
     <ng-container *ngIf="hasOrderInfo">
       <h3>Orderinfo</h3>
       <p *ngIf="invoice.order.order_number">Ordernumber: {{ invoice.order.order_number }}</p>
-      <p *ngIf="invoice.order.date">Orderdate: {{ invoice.order.date }}</p>
+      <p *ngIf="invoice.order.date">Orderdate: {{ invoice.order.date | date }}</p>
       <p *ngIf="invoice.order.package_number">Packagenumber: {{ invoice.order.package_number }}</p>
-      <p *ngIf="invoice.order.purchasedate">Purchasedate: {{ invoice.order.purchasedate }}</p>
+      <p *ngIf="invoice.order.purchasedate">Purchasedate: {{ invoice.order.purchasedate | date }}</p>
       <p *ngIf="invoice.order.receipt_number">Receiptnumber: {{ invoice.order.receipt_number }}</p>
       <p *ngIf="invoice.order.server">Server: {{ invoice.order.server }}</p>
       <p *ngIf="invoice.order.shop_number">Shopnumber: {{ invoice.order.shop_number }}</p>
@@ -101,7 +101,7 @@
       <p *ngIf="invoice.order.transaction_reference">Transaction transaction_reference: {{ invoice.order.transaction_reference }}</p>
       <div *ngFor="let barcode of invoice.order.barcodes">
         <p *ngIf="barcode.type">Type: {{ barcode.type }}</p>
-        <p *ngIf="barcode.value">Inhoud: {{ barcode.value }}</p>
+        <p *ngIf="barcode.value">Value: {{ barcode.value }}</p>
       </div>
     </ng-container>
   </p-card>
